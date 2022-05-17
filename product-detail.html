@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Deatial</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div class="main_wrapper">
+        <div class="container">
+            <div class="product_div">
+                <div class="product_div_left">
+                    <div class="img_container">
+                        <img src="./public/images/product2.png" alt="watch">
+                    </div>
+                    <div class="hover_container">
+                        <div><img src="./public/images/product1.png"></div>
+                        <div><img src="./public/images/product2.png"></div>
+                        <div><img src="./public/images/product3.png"></div>
+                        <div><img src="./public/images/product4.png"></div>
+                    </div>
+                </div>
+                <div class="product_div_right">
+                    <span class="product_name">All Natural <br />Psoriasis Cream.</span>
+                    <!-- <span class = "product-price">$ 50.25</span> -->
+                    <div class="product_rating">
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star"></i></span>
+                        <span><i class="fas fa-star-half-alt"></i></span>
+                        <span><a href="#"> 50 Reviews</a></span>
+                    </div>
+                    <h2 class="product_title">Lorem ipsum dolor sit amet, consetetur</h2>
+                    <p class="product_description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae animi
+                        ad minima veritatis dolore. Architecto facere dignissimos voluptate fugit ratione molestias quis
+                        quidem exercitationem voluptas.</p>
+                    <div class="btn_groups">
+                        <div class="price_btns">
+                            <button id="subtract">-</button>
+                            <input value="0" id="numbr">
+                            <button id="add">+</button>
+                        </div>
+                        <button type="button" class="add_cart_btn"><i class="fas fa-shopping-cart"></i>Add to bag <i
+                                class="fa-solid fa-minus"></i> $ 50.25</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // PRODUCT DETAIL PAGE JS
+
+        const allHoverImages = document.querySelectorAll('.hover_container div img');
+        const imgContainer = document.querySelector('.img_container');
+
+        window.addEventListener('DOMContentLoaded', () => {
+            allHoverImages[0].parentElement.classList.add('border_active');
+        });
+
+        allHoverImages.forEach((image) => {
+            image.addEventListener('mouseover', () => {
+                imgContainer.querySelector('img').src = image.src;
+                resetActiveImg();
+                image.parentElement.classList.add('border_active');
+            });
+        });
+
+        function resetActiveImg() {
+            allHoverImages.forEach((img) => {
+                img.parentElement.classList.remove('border_active');
+            });
+        }
+
+
+
+        let btnAdd = document.querySelector('#add');
+        let btnSubtract = document.querySelector('#subtract');
+        let input = document.querySelector('#numbr');
+        btnAdd.addEventListener('click', () => {
+            input.value = parseInt(input.value) + 1;
+        });
+        btnSubtract.addEventListener('click', () => {
+            input.value = parseInt(input.value) - 1;
+        });
+
+    </script>
+</body>
+
+</html>

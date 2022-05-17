@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <div class="login_wrapper">
+        <form class="form" method="post" action="#">
+            <div class="signin">
+                <div class="headline">
+                    <h1>Login</h1>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required="">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required="">
+                </div>
+                <button type="submit" class="btn">LOGIN</button>
+                <div class="forget-password">
+                    <a href="#">Forgot your password?</a>
+                </div>
+                <div class="account-exist">
+                    Don’t have an account? <a href="#" id="signup">Register Now</a>
+                </div>
+            </div>
+            <div class="signup">
+                <div class="headline">
+                    <h1>Register</h1>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Full name" required="">
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required="">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" required="">
+                </div>
+                <div class="forget-password">
+                    <div class="check-box">
+                        <input type="checkbox" id="checkbox">
+                        <label for="checkbox">Receive email address and special promos</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Continue</button>
+                <div class="account-exist">
+                    Already have an account? <a href="#" id="login">Sign in here</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let btnLogin = document.getElementById("login");
+        let btnSignUp = document.getElementById("signup");
+
+        let signIn = document.querySelector(".signin");
+        let signUp = document.querySelector(".signup");
+
+        btnSignUp.addEventListener("click", () => {
+            signUp.classList.add("active");
+            signIn.classList.add("inActive");
+        })
+        btnLogin.addEventListener("click", () => {
+            signUp.classList.remove("active");
+            signIn.classList.remove("inActive");
+        })
+
+    </script>
+
+</body>
+
+</html>
